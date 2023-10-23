@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+h1 {
+  @apply mb-2 text-xl text-black;
+}
+
 html.fs-lg {
   font-size: 20px;
 }
