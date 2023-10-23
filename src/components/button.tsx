@@ -9,6 +9,7 @@ const buttonVariants = cva('btn', {
       default: 'btn-primary',
       info: 'btn-info',
       error: 'btn-error dark:text-white',
+      accent: 'btn-accent',
     },
     variant: {
       default: 'btn-primary',

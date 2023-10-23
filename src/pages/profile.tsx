@@ -7,19 +7,29 @@ import {
   AccordionPanel,
   Avatar,
   Box,
+  Center,
+  Flex,
+  Heading,
   Icon,
   Image,
+  Stack,
+  Text,
+  VStack,
 } from '@chakra-ui/react';
-import { BiSolidUserBadge } from 'react-icons/bi';
+import { AiOutlineGlobal } from 'react-icons/ai';
+import { BiSolidPhone } from 'react-icons/bi';
+import { BsMailbox } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
+import { useTheme } from '@/components/hooks';
 import { PageWrapper } from '@/components/page-wrapper';
 
 export default function ProfilePage() {
+  const { theme, setTheme, setFontSize } = useTheme();
   return (
     <PageWrapper>
       <div className="flex justify-between">
-        <h1 className="font-bold">Profile Page</h1>
+        <Heading size={'md'}>Profile Page</Heading>
         <div>
           <Link to={'/addsection'}>
             <Button className="mr-2 h-fit" color="info">
@@ -27,7 +37,7 @@ export default function ProfilePage() {
             </Button>
           </Link>
           <Link to={'/previewprofile'}>
-            <Button className="h-fit" color="default">
+            <Button className="h-fit" color="accent">
               Preview Profile
             </Button>
           </Link>
@@ -45,12 +55,32 @@ export default function ProfilePage() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            <Box className="ml-5" display="flex" alignItems="center">
-              <Avatar size="xl" name="profilepic" src="/bapake.jpg" />
-              <Box className="mb-14 ml-5" display="flex">
-                <BiSolidUserBadge size={20} />
-                Rheyfan Sayidan
-              </Box>
+            <Box overflow="hidden">
+              <Center>
+                <VStack>
+                  <Heading size="lg">Rheyfan Syafdani</Heading>
+                </VStack>
+              </Center>
+
+              <Stack spacing={3} p={5}>
+                <Stack direction="row" spacing={4} align="center">
+                  <BiSolidPhone />
+                  <Text fontSize="md">+62 81285744522</Text>
+                </Stack>
+
+                <Stack direction="row" spacing={4} align="center">
+                  <BsMailbox />
+                  <Text fontSize="md">rheyfan.s@gmail.com</Text>
+                </Stack>
+
+                <Stack direction="row" spacing={4} align="center">
+                  <AiOutlineGlobal />
+                  <Text fontSize="md">
+                    Jalan Kakap Raya, Karawaci Baru Kel . , Karawaci , Tangerang Kota , Banten ,
+                    Indonesia
+                  </Text>
+                </Stack>
+              </Stack>
             </Box>
           </AccordionPanel>
         </AccordionItem>
@@ -67,9 +97,8 @@ export default function ProfilePage() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Provide a salary range for better job matches & increase chances to get hired by the
+            perfect company. Click Add at the top right corner to add Salary.
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -85,9 +114,9 @@ export default function ProfilePage() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Besides your last job title or company, employers want to know what you accomplished
+            while there. Detail achievements and contributions made. Click Add at the top right
+            corner to add Work History.
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -103,9 +132,9 @@ export default function ProfilePage() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Your most recent and relevant educational attainment should come first. If you have a
+            post-graduate or master's degree, no need to include where you went to high
+            school. Click Add at the top right corner to add Educational Attainment.
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -121,9 +150,9 @@ export default function ProfilePage() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Enumerate your skills, competencies, and talents relevant to the position and industry
+            you are applying to. Indicate proficiency levels (Basic, Novice, Intermediate, Advanced,
+            Expert) for each skill. Click Add at the top right corner to add Skills.
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -138,9 +167,11 @@ export default function ProfilePage() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Note: Your profile is the first thing recruiters see and not your uploaded resume, so
+            make sure your Kalibrr profile is as complete and detailed as your uploaded resume.
+            <div className="mt-2 flex items-center justify-center">
+              <input type="file" className="file-input file-input-bordered w-full max-w-xs" />
+            </div>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
